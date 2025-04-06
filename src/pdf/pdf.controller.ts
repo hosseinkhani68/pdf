@@ -19,6 +19,10 @@ export class PdfController {
       
       res.setHeader('Content-Type', 'application/pdf');
       res.setHeader('Content-Disposition', 'attachment; filename=generated.pdf');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
       
       return res.status(HttpStatus.OK).send(pdfBuffer);
     } catch (error) {
@@ -56,6 +60,10 @@ export class PdfController {
       
       res.setHeader('Content-Type', 'application/pdf');
       res.setHeader('Content-Disposition', 'attachment; filename=generated.pdf');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
       
       return res.status(HttpStatus.OK).send(pdfBuffer);
     } catch (error) {
