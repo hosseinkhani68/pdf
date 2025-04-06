@@ -93,7 +93,6 @@ export class PdfService {
       const fullHtml = `
         <html>
           <head>
-            <style>${options.css || ''}</style>
           </head>
           <body>
             ${html}
