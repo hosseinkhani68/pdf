@@ -94,77 +94,98 @@ export class PdfService {
         <html>
           <head>
            <style>
-            body {
-              font-family: Arial, sans-serif;
-              line-height: 1.6;
-              padding: 20px;
-            }
-            /* Code block styles */
-            pre {
-              background-color: #f5f5f5;
-              border-radius: 4px;
-              padding: 16px;
+            .PlaygroundEditorTheme__code {
+              background-color: rgb(240, 242, 245);
+              font-family: Menlo, Consolas, Monaco, monospace;
+              display: block;
+              padding: 8px 8px 8px 52px;
+              line-height: 1.53;
+              font-size: 13px;
+              margin: 0;
+              margin-top: 8px;
+              margin-bottom: 8px;
               overflow-x: auto;
-              margin: 16px 0;
-              font-family: 'Courier New', Courier, monospace;
-              font-size: 14px;
-              line-height: 1.5;
-              white-space: pre;
+              position: relative;
+              tab-size: 2;
             }
-            code {
-              font-family: 'Courier New', Courier, monospace;
-              background-color: #f5f5f5;
-              padding: 2px 4px;
-              border-radius: 3px;
-              font-size: 14px;
+            .PlaygroundEditorTheme__code:before {
+              content: attr(data-gutter);
+              position: absolute;
+              background-color: #eee;
+              left: 0;
+              top: 0;
+              border-right: 1px solid #ccc;
+              padding: 8px;
+              color: #777;
+              white-space: pre-wrap;
+              text-align: right;
+              min-width: 25px;
             }
             /* Syntax highlighting colors */
-            .token.comment,
-            .token.prolog,
-            .token.doctype,
-            .token.cdata {
-              color: #6a9955;
+            .PlaygroundEditorTheme__tokenComment {
+              color: slategray;
             }
-            .token.punctuation {
-              color: #d4d4d4;
+            .PlaygroundEditorTheme__tokenPunctuation {
+              color: #999;
             }
-            .token.property,
-            .token.tag,
-            .token.boolean,
-            .token.number,
-            .token.constant,
-            .token.symbol,
-            .token.deleted {
-              color: #b5cea8;
+            .PlaygroundEditorTheme__tokenProperty {
+              color: #905;
             }
-            .token.selector,
-            .token.attr-name,
-            .token.string,
-            .token.char,
-            .token.builtin,
-            .token.inserted {
-              color: #ce9178;
+            .PlaygroundEditorTheme__tokenSelector {
+              color: #690;
             }
-            .token.operator,
-            .token.entity,
-            .token.url,
-            .language-css .token.string,
-            .style .token.string {
-              color: #d4d4d4;
+            .PlaygroundEditorTheme__tokenOperator {
+              color: #9a6e3a;
             }
-            .token.atrule,
-            .token.attr-value,
-            .token.keyword {
-              color: #569cd6;
+            .PlaygroundEditorTheme__tokenAttr {
+              color: #07a;
             }
-            .token.function,
-            .token.class-name {
-              color: #dcdcaa;
+            .PlaygroundEditorTheme__tokenVariable {
+              color: #e90;
             }
-            .token.regex,
-            .token.important,
-            .token.variable {
-              color: #d16969;
+            .PlaygroundEditorTheme__tokenFunction {
+              color: #dd4a68;
+            }
+            /* Other editor styles */
+            .PlaygroundEditorTheme__paragraph {
+              margin: 0;
+              position: relative;
+            }
+            .PlaygroundEditorTheme__h1 {
+              font-size: 24px;
+              color: rgb(5, 5, 5);
+              font-weight: 400;
+              margin: 0;
+            }
+            .PlaygroundEditorTheme__h2 {
+              font-size: 15px;
+              color: rgb(101, 103, 107);
+              font-weight: 700;
+              margin: 0;
+              text-transform: uppercase;
+            }
+            .PlaygroundEditorTheme__h3 {
+              font-size: 12px;
+              margin: 0;
+              text-transform: uppercase;
+            }
+            .PlaygroundEditorTheme__textBold {
+              font-weight: bold;
+            }
+            .PlaygroundEditorTheme__textItalic {
+              font-style: italic;
+            }
+            .PlaygroundEditorTheme__textUnderline {
+              text-decoration: underline;
+            }
+            .PlaygroundEditorTheme__textStrikethrough {
+              text-decoration: line-through;
+            }
+            .PlaygroundEditorTheme__textCode {
+              background-color: rgb(240, 242, 245);
+              padding: 1px 0.25rem;
+              font-family: Menlo, Consolas, Monaco, monospace;
+              font-size: 94%;
             }
           </style>
           </head>
