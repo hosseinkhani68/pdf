@@ -3,60 +3,6 @@ import * as puppeteer from 'puppeteer-core';
 
 @Injectable()
 export class PdfService {
-  async generatePdfFromHtml(html: string, css?: string): Promise<Buffer> {
-    try {
-      // Launch browser
-      const browser = await puppeteer.launch({
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/chromium-browser',
-        headless: true,
-        args: [
-          '--no-sandbox',
-          '--disable-setuid-sandbox',
-          '--disable-dev-shm-usage',
-          '--disable-accelerated-2d-canvas',
-          '--disable-gpu',
-          '--window-size=1920x1080',
-        ],
-      });
-
-      const page = await browser.newPage();
-
-      // Combine HTML and CSS
-      const fullHtml = `
-        <html>
-          <head>
-            <style>${css || ''}</style>
-          </head>
-          <body>
-            ${html}
-          </body>
-        </html>
-      `;
-
-      // Set content
-      await page.setContent(fullHtml, {
-        waitUntil: 'networkidle0',
-      });
-
-      // Generate PDF
-      const pdf = await page.pdf({
-        format: 'A4',
-        printBackground: true,
-        margin: {
-          top: '20px',
-          right: '20px',
-          bottom: '20px',
-          left: '20px',
-        },
-      });
-
-      await browser.close();
-      return Buffer.from(pdf);
-    } catch (error) {
-      throw new Error(`Failed to generate PDF from HTML: ${error.message}`);
-    }
-  }
-
   async generatePdfFromHtmlWithOptions(
     html: string,
     options: {
@@ -187,6 +133,17 @@ export class PdfService {
               font-family: Menlo, Consolas, Monaco, monospace;
               font-size: 94%;
             }
+              .excalidraw-button {
+                border: 0;
+                padding: 0;
+                margin: 0;
+                background-color: transparent;
+              }
+
+              .excalidraw-button.selected {
+                outline: 2px solid rgb(60, 132, 244);
+                user-select: none;
+              }
               .PlaygroundEditorTheme__listItemChecked,
               .PlaygroundEditorTheme__listItemUnchecked {
                 position: relative;
