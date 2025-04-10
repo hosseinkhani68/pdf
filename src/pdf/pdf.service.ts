@@ -94,6 +94,24 @@ export class PdfService {
         <html>
           <head>
            <style>
+            .ContentEditable__root {
+              min-height: 150px;
+              border: 1px solid #ddd;
+              border-radius: 4px;
+              padding: 15px;
+              margin: 0;
+              outline: none;
+              position: relative;
+              tab-size: 1;
+              text-align: left;
+              white-space: pre-wrap;
+              word-wrap: break-word;
+              background-color: #fff;
+            }
+            .ContentEditable__root:focus {
+              border-color: #007bff;
+              box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+            }
             .PlaygroundEditorTheme__code {
               background-color: rgb(240, 242, 245);
               font-family: Menlo, Consolas, Monaco, monospace;
@@ -120,6 +138,15 @@ export class PdfService {
               white-space: pre-wrap;
               text-align: right;
               min-width: 25px;
+            }
+            .sticky-note-container {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 20px;
+              padding: 20px;
+              background-color: #f5f5f5;
+              border-radius: 8px;
+              margin: 20px 0;
             }
             .sticky-note {
               background-color: #fff8dc;
