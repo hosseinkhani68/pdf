@@ -94,24 +94,6 @@ export class PdfService {
         <html>
           <head>
            <style>
-            .ContentEditable__root {
-              min-height: 150px;
-              border: 1px solid #ddd;
-              border-radius: 4px;
-              padding: 15px;
-              margin: 0;
-              outline: none;
-              position: relative;
-              tab-size: 1;
-              text-align: left;
-              white-space: pre-wrap;
-              word-wrap: break-word;
-              background-color: #fff;
-            }
-            .ContentEditable__root:focus {
-              border-color: #007bff;
-              box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-            }
             .PlaygroundEditorTheme__code {
               background-color: rgb(240, 242, 245);
               font-family: Menlo, Consolas, Monaco, monospace;
@@ -139,42 +121,7 @@ export class PdfService {
               text-align: right;
               min-width: 25px;
             }
-            .sticky-note-container {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 20px;
-              padding: 20px;
-              background-color: #f5f5f5;
-              border-radius: 8px;
-              margin: 20px 0;
-            }
-            .sticky-note {
-              background-color: #fff8dc;
-              border: 1px solid #e6d8b5;
-              border-radius: 4px;
-              padding: 12px;
-              margin: 8px 0;
-              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-              position: relative;
-              min-height: 100px;
-            }
-            .sticky-note::before {
-              content: '';
-              position: absolute;
-              top: 0;
-              right: 0;
-              width: 0;
-              height: 0;
-              border-style: solid;
-              border-width: 0 20px 20px 0;
-              border-color: transparent #f5e6b3 transparent transparent;
-            }
-            .sticky-note-content {
-              font-family: 'Comic Sans MS', cursive, sans-serif;
-              font-size: 14px;
-              line-height: 1.4;
-              color: #333;
-            }
+            /* Syntax highlighting colors */
             .PlaygroundEditorTheme__tokenComment {
               color: slategray;
             }
@@ -240,8 +187,66 @@ export class PdfService {
               font-family: Menlo, Consolas, Monaco, monospace;
               font-size: 94%;
             }
-
-            
+              .PlaygroundEditorTheme__listItemChecked,
+              .PlaygroundEditorTheme__listItemUnchecked {
+                position: relative;
+                margin-left: 8px;
+                margin-right: 8px;
+                padding-left: 24px;
+                padding-right: 24px;
+                list-style-type: none;
+                outline: none;
+              }
+              .PlaygroundEditorTheme__listItemChecked {
+                text-decoration: line-through;
+              }
+              .PlaygroundEditorTheme__listItemUnchecked:before,
+              .PlaygroundEditorTheme__listItemChecked:before {
+                content: '';
+                width: 16px;
+                height: 16px;
+                top: 2px;
+                left: 0;
+                cursor: pointer;
+                display: block;
+                background-size: cover;
+                position: absolute;
+              }
+              .PlaygroundEditorTheme__listItemUnchecked[dir='rtl']:before,
+              .PlaygroundEditorTheme__listItemChecked[dir='rtl']:before {
+                left: auto;
+                right: 0;
+              }
+              .PlaygroundEditorTheme__listItemUnchecked:focus:before,
+              .PlaygroundEditorTheme__listItemChecked:focus:before {
+                box-shadow: 0 0 0 2px #a6cdfe;
+                border-radius: 2px;
+              }
+              .PlaygroundEditorTheme__listItemUnchecked:before {
+                border: 1px solid #999;
+                border-radius: 2px;
+              }
+              .PlaygroundEditorTheme__listItemChecked:before {
+                border: 1px solid rgb(61, 135, 245);
+                border-radius: 2px;
+                background-color: #3d87f5;
+                background-repeat: no-repeat;
+              }
+              .PlaygroundEditorTheme__listItemChecked:after {
+                content: '';
+                cursor: pointer;
+                border-color: #fff;
+                border-style: solid;
+                position: absolute;
+                display: block;
+                top: 6px;
+                width: 3px;
+                left: 7px;
+                right: 7px;
+                height: 6px;
+                transform: rotate(45deg);
+                border-width: 0 2px 2px 0;
+              }
           </style>
           </head>
           <body>
