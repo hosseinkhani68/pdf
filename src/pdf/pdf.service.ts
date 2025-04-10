@@ -94,34 +94,6 @@ export class PdfService {
         <html>
           <head>
            <style>
-               /* Sticky note styles */
-            .sticky-note {
-              background-color: #fff8dc;
-              border: 1px solid #e6d8b5;
-              border-radius: 4px;
-              padding: 12px;
-              margin: 8px 0;
-              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-              position: relative;
-              min-height: 100px;
-            }
-            .sticky-note::before {
-              content: '';
-              position: absolute;
-              top: 0;
-              right: 0;
-              width: 0;
-              height: 0;
-              border-style: solid;
-              border-width: 0 20px 20px 0;
-              border-color: transparent #f5e6b3 transparent transparent;
-            }
-            .sticky-note-content {
-              font-family: 'Comic Sans MS', cursive, sans-serif;
-              font-size: 14px;
-              line-height: 1.4;
-              color: #333;
-            }
             .PlaygroundEditorTheme__code {
               background-color: rgb(240, 242, 245);
               font-family: Menlo, Consolas, Monaco, monospace;
@@ -149,7 +121,33 @@ export class PdfService {
               text-align: right;
               min-width: 25px;
             }
-            /* Syntax highlighting colors */
+            .sticky-note {
+              background-color: #fff8dc;
+              border: 1px solid #e6d8b5;
+              border-radius: 4px;
+              padding: 12px;
+              margin: 8px 0;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+              position: relative;
+              min-height: 100px;
+            }
+            .sticky-note::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 0 20px 20px 0;
+              border-color: transparent #f5e6b3 transparent transparent;
+            }
+            .sticky-note-content {
+              font-family: 'Comic Sans MS', cursive, sans-serif;
+              font-size: 14px;
+              line-height: 1.4;
+              color: #333;
+            }
             .PlaygroundEditorTheme__tokenComment {
               color: slategray;
             }
