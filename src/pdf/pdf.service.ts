@@ -94,6 +94,34 @@ export class PdfService {
         <html>
           <head>
            <style>
+               /* Sticky note styles */
+            .sticky-note {
+              background-color: #fff8dc;
+              border: 1px solid #e6d8b5;
+              border-radius: 4px;
+              padding: 12px;
+              margin: 8px 0;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+              position: relative;
+              min-height: 100px;
+            }
+            .sticky-note::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 0 20px 20px 0;
+              border-color: transparent #f5e6b3 transparent transparent;
+            }
+            .sticky-note-content {
+              font-family: 'Comic Sans MS', cursive, sans-serif;
+              font-size: 14px;
+              line-height: 1.4;
+              color: #333;
+            }
             .PlaygroundEditorTheme__code {
               background-color: rgb(240, 242, 245);
               font-family: Menlo, Consolas, Monaco, monospace;
@@ -188,121 +216,7 @@ export class PdfService {
               font-size: 94%;
             }
 
-
-.sticky-note-container {
-  position: absolute;
-  z-index: 9;
-  width: 120px;
-  display: inline-block;
-}
-
-.sticky-note {
-  line-height: 1;
-  text-align: left;
-  width: 120px;
-  margin: 25px;
-  padding: 20px 10px;
-  position: relative;
-  border: 1px solid #e8e8e8;
-  font-family: 'Reenie Beanie';
-  font-size: 24px;
-  border-bottom-right-radius: 60px 5px;
-  display: block;
-  cursor: move;
-}
-
-.sticky-note:after {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  right: -0px;
-  bottom: 20px;
-  width: 120px;
-  height: 25px;
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.4);
-  transform: matrix(-1, -0.1, 0, 1, 0, 0);
-}
-
-.sticky-note.yellow {
-  border-top: 1px solid #fdfd86;
-  background: linear-gradient(
-    135deg,
-    #ffff88 81%,
-    #ffff88 82%,
-    #ffff88 82%,
-    #ffffc6 100%
-  );
-}
-
-.sticky-note.pink {
-  border-top: 1px solid #e7d1e4;
-  background: linear-gradient(
-    135deg,
-    #f7cbe8 81%,
-    #f7cbe8 82%,
-    #f7cbe8 82%,
-    #e7bfe1 100%
-  );
-}
-
-.sticky-note-container.dragging {
-  transition: none !important;
-}
-
-.sticky-note div {
-  cursor: text;
-}
-
-.sticky-note .delete {
-  border: 0;
-  background: none;
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  font-size: 10px;
-  cursor: pointer;
-  opacity: 0.5;
-}
-
-.sticky-note .delete:hover {
-  font-weight: bold;
-  opacity: 1;
-}
-
-.sticky-note .color {
-  border: 0;
-  background: none;
-  position: absolute;
-  top: 8px;
-  right: 25px;
-  cursor: pointer;
-  opacity: 0.5;
-}
-
-.sticky-note .color:hover {
-  opacity: 1;
-}
-
-.sticky-note .color i {
-  display: block;
-  width: 12px;
-  height: 12px;
-  background-size: contain;
-}
-
-.excalidraw-button {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  background-color: transparent;
-}
-
-.excalidraw-button.selected {
-  outline: 2px solid rgb(60, 132, 244);
-  user-select: none;
-}
-
+            
           </style>
           </head>
           <body>
